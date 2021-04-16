@@ -7,7 +7,8 @@ class Dinosaur:
 
     def attack_robot(self, robot_victim):
         robot_victim.health -= self.attack_power
-        if robot_victim.health < 0:
-            fleet1.robot_army.remove(robot_victim)
-        if robot_army =[]:
-            print('Dinosaurs Win!')
+
+
+
+
+
