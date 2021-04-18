@@ -2,6 +2,7 @@ from herd import Herd
 from fleet import Fleet
 
 
+
 class Battlefield:
     def __init__(self):
         self.dino_herd = Herd().dinosaurs
@@ -10,37 +11,79 @@ class Battlefield:
 
 
 # member methods
-
+robot_defeated = []
+dinosaurs_defeated = []
     def display_welcome(self):
-        print('Welcome to the battle of the century. dinosaurs Vs Robots!')
+        print('Welcome to Dinosaurs Vs Robots!')
         welcome_prompt = raw_input('would you like to play the dinosaurs or the robots?')
+        print (welcome_prompt + 'lets get started!')
+
+    def robot_list(self):
+        print(self.robot_fleet)
+
+    def dinosaur_list(self):
+        print(self.dino_herd)
 
     def battle_as_robots(self):
-        robot_defeated = []
-        dinosaurs_defeated = []
         self.display_welcome()
         while len(dinosaurs_defeated) or len(robot_defeated) < 3:
 
 
 
-
-
-
-    def robot_list(self):
-    print(self.robot_fleet)
-
-
-    def dinosaur_list(self):
-    print(self.dino_herd)
-
-
     def robots_turn(self):
         print self.robot_fleet
-        attack_prompt = raw_input('which robot would you like to attack with? robot1 robot2 or robot3 ?')
+        attack_prompt = raw_input('who would you like to  attack with? robot1 robot2 or robot3 ?')
         print self.dino_herd
-        target_prompt = raw_input('which dinosaur would you like to attack? dinosaur1 dinosaur2 or dinosaur3 ?')
-        self.robot_fleet.attack_dinosaur(attack_prompt,target_prompt)
-        if target_prompt.health < 0:
+        if attack_prompt == 1:
+            attacker = robot1
+            return attacker
+        elif attack_prompt == 2:
+            attacker = robot2
+            return attacker
+        elif attack_prompt == 1:
+            attacker = robot3
+            return attacker
+        target_prompt = raw_input('who would you like to attack? 1 2 or 3 ?')
+        if target_prompt == 1:
+            target = dinosaur1
+            return target
+        elif target_prompt == 2:
+            target = dinosaur2
+            return target
+        elif target_prompt == 3:
+            target = dinosaur3
+            return target
+
+        if target.health < 0:
+            dinosaurs_defeated.append(target)
+
+
+    def dinosaurs_turn(self):
+        print self.dino_herd
+        attack_prompt = raw_input('who would you like to  attack with? robot1 robot2 or robot3 ?')
+        print self.dino_herd
+        if attack_prompt == 1:
+        attacker = dinosaur1
+        return attacker
+        elif attack_prompt == 2:
+        attacker = dinosaur2
+        return attacker
+        elif attack_prompt == 1:
+        attacker = dinosaur3
+        return attacker
+        target_prompt = raw_input('who would you like to attack? 1 2 or 3 ?')
+        if target_prompt == 1:
+        target = robot1
+        return target
+        elif target_prompt == 2:
+        target = robot2
+        return target
+        elif target_prompt == 3:
+        target = robot3
+        return target
+
+        if target.health < 0:
+        robot_defeated.append(target)
 
 
 
