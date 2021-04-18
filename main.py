@@ -1,5 +1,5 @@
 from battlefield import Battlefield
 
-battlefield = Battlefield()
+if __name__ == '__main__':
+    battlefield = Battlefield()
 
-battlefield.display_welcome()
